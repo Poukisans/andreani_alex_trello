@@ -2,7 +2,7 @@ const adresseApi = "https://127.0.0.1/trello/api"
 
 //======================= Récupérer données du trello =======================
 function getTableauData(id) {
-  fetch(`${adresseApi}/tableau.php?id=${id}`)
+   fetch(`${adresseApi}/tableau.php?id=${id}`)
     .then(response => response.json())
     .then(data => {
       if (data.status === 200) {
@@ -28,7 +28,7 @@ function submitAddTache(event, listId) {
   jsonData.id_liste = listId;//ajout id liste au data du json
   const json = JSON.stringify(jsonData);
 
-  fetch("${adresseApi}/tache.php", {
+  fetch(`${adresseApi}/tache.php`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ function submitEditTache(event, tacheId) {
 
   const json = JSON.stringify(jsonData);
 
-  fetch("${adresseApi}/tache.php", {
+  fetch(`${adresseApi}/tache.php`, {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ function submitDeleteTache(event, tacheId) {
 
   const json = JSON.stringify(jsonData);
 
-  fetch("${adresseApi}/tache.php", {
+  fetch(`${adresseApi}/tache.php`, {
     method: "DELETE",
     headers: {
       'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ function submitAddListe(event, tableauId) {
   const json = JSON.stringify(jsonData);
   console.log(json)
 
-  fetch("${adresseApi}/liste.php", {
+  fetch(`${adresseApi}/liste.php`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
@@ -165,7 +165,7 @@ function submitDeleteListe(listeId) {
   const json = JSON.stringify(jsonData);
   console.log(json)
 
-  fetch("${adresseApi}/liste.php", {
+  fetch(`${adresseApi}/liste.php`, {
     method: "DELETE",
     headers: {
       'Content-Type': 'application/json',
